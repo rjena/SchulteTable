@@ -25,7 +25,7 @@ SECRET_KEY = '0faqz&-z(3k%))9(1qxd#0rjvpj)d+lr4$%po#_4c3sk6$-x#q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'schultetable.pythonanywhere.com']
 
 
 # Application definition
