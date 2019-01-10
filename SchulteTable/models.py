@@ -18,7 +18,9 @@ class UserST(models.Model):
         verbose_name_plural = u'Пользователи'
 
 class Test(models.Model):
-    result = models.DecimalField(decimal_places=2, max_digits=12, validators=[MinValueValidator(0)], verbose_name=u"Результат")
+    stWE =  models.DecimalField(default = 0, decimal_places=2, max_digits=12, validators=[MinValueValidator(0)], verbose_name=u"Эффективность работы")
+    stWU =  models.DecimalField(default = 0, decimal_places=2, max_digits=12, validators=[MinValueValidator(0)], verbose_name=u"Степень врабатываемости")
+    stPS =  models.DecimalField(default = 0, decimal_places=2, max_digits=12, validators=[MinValueValidator(0)], verbose_name=u"Психологическая устойчивость")
     user_id = models.ForeignKey(UserST, on_delete=models.CASCADE, verbose_name=u"Пользователь")
     age = models.PositiveIntegerField(verbose_name=u"Возраст")
     date = models.DateField(default=timezone.now, verbose_name=u"Дата")
