@@ -10,7 +10,7 @@ class UserST(models.Model):
     bday = models.DateField(verbose_name=u"Дата рождения")
     password = models.CharField(max_length=100, validators=[MinLengthValidator(8)], verbose_name=u"Хэш пароля")
     tokenToConfirmEmail = models.CharField(max_length=1000, unique=True, null=True, verbose_name=u"Токен для почты")
-    tokenToResetPassword = models.CharField(max_length=1000, verbose_name=u"Токен для сброса пароля")
+    tokenToResetPassword = models.CharField(max_length=1000, unique=True, null=True, verbose_name=u"Токен для сброса пароля")
     def __str__(self):
         return self.login
     class Meta:
