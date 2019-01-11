@@ -31,9 +31,9 @@ def users_api(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT'])
-def users_detail_api(request, pk):
+def users_detail_api(request, id):
     try:
-        user = UserST.objects.get(pk=pk)
+        user = UserST.objects.get(id=id)
     except UserST.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
@@ -54,7 +54,7 @@ def tests_api(request):
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = TestSerializer(data=request.data)
-        if serializer.is_valid():   
+        if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
